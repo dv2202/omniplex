@@ -1,10 +1,11 @@
+
 import type { Metadata } from "next";
-import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import "katex/dist/katex.min.css";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import SidebarLayout from "./SidebarLayout";
+import { AnimatePresence } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,11 +50,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,8 +59,9 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <Providers>
-          <Sidebar />
-          {children}
+        <AnimatePresence mode="wait">
+          <SidebarLayout>{children}</SidebarLayout>
+        </AnimatePresence>
         </Providers>
       </body>
     </html>

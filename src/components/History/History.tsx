@@ -75,7 +75,8 @@ const History = () => {
   };
 
   const handleAuth = () => {
-    onOpen();
+    // onOpen();
+    router.push("/login");
   };
 
   return (

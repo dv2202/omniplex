@@ -9,6 +9,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import Spinner from "../Spinner/Spinner";
+import Logo from "../../../public/Logo.svg";
 
 type Props = {
   isOpen: boolean;
@@ -72,62 +73,15 @@ const Auth = (props: Props) => {
   };
 
   return (
-    <Modal
-      size={"lg"}
-      radius="md"
-      shadow="sm"
-      backdrop={"blur"}
-      isOpen={props.isOpen}
-      onClose={props.onClose}
-      placement="bottom-center"
-      closeButton={<div></div>}
-    >
-      <ModalContent>
-        {(onClose) => (
-          <div className={styles.modal}>
-            <div className={styles.titleContainer}>
-              <div className={styles.title}></div>
-              <div
-                className={styles.close}
-                onClick={() => {
-                  onClose();
-                }}
-              >
-                <Image
-                  width={20}
-                  height={20}
-                  src={"/svgs/CrossWhite.svg"}
-                  alt={"X"}
-                />
-              </div>
-            </div>
-            <div className={styles.container}>
-              <div className={styles.title}>Welcome</div>
-              <p className={styles.text}>Let&apos;s Create Your Account</p>
-
-              {loading ? (
-                <div className={styles.button}>
-                  <div className={styles.spinner}>
-                    <Spinner />
-                  </div>
-                  <div className={styles.buttonText}>Signing in</div>
-                </div>
-              ) : (
-                <div className={styles.button} onClick={handleAuth}>
-                  <Image
-                    src={"/svgs/Google.svg"}
-                    alt={"Google"}
-                    width={24}
-                    height={24}
-                  />
-                  <div className={styles.buttonText}>Continue with Google</div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-      </ModalContent>
-    </Modal>
+    <div className="w-full h-full flex flex-row"
+      >
+      <div className="w-[50%] h-full flex flex-col">
+        <div className="flex flex-row items-center justify-center">
+          <img src={Logo} alt="logo" />
+          <p>Omniplex</p>
+        </div>
+      </div>
+    </div>
   );
 };
 

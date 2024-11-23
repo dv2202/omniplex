@@ -9,6 +9,7 @@ import {
   StockType,
   DictionaryType,
   SearchType,
+  NewsType
 } from "@/utils/types";
 
 type ChatState = {
@@ -144,6 +145,20 @@ const chatSlice = createSlice({
       const { threadId, chatIndex, answer } = action.payload;
       state.threads[threadId].chats[chatIndex].answer = answer;
     },
+    updateNews: (
+      state,
+      action: PayloadAction<{
+        threadId: string;
+        chatIndex: number;
+        newsResults: NewsType;
+      }>
+    ) => {
+      const { threadId, chatIndex, newsResults } = action.payload;
+      if (state.threads[threadId] && state.threads[threadId].chats[chatIndex]) {
+        state.threads[threadId].chats[chatIndex].newsResults = newsResults;
+      }
+    },
+    
     updateChatThread: (
       state,
       action: PayloadAction<{
@@ -178,6 +193,7 @@ export const {
   updateWeather,
   updateStock,
   updateDictionary,
+  updateNews,
   updateAnswer,
   updateChatThread,
   resetChat,

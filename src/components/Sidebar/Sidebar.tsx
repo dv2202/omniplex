@@ -95,7 +95,7 @@ const Sidebar = () => {
       setSelected("profile");
     } else {
       closeSidebar();
-      onOpen();
+      router.push("/login")
     }
   };
 
@@ -233,7 +233,9 @@ const Sidebar = () => {
               className={`${styles.mobileOverlay} ${
                 isClosing ? styles.mobileOverlayClosing : null
               }`}
+
             />
+
           )}
         </>
       )}

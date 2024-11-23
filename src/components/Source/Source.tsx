@@ -13,9 +13,11 @@ import {
   StockType,
   WeatherType,
   DictionaryType,
+
 } from "@/utils/types";
 
 import SourceLogo from "../../../public/svgs/Source.svg";
+import News from "../../app/news/page";
 
 type Props = {
   mode: string;
@@ -23,7 +25,8 @@ type Props = {
   searchResults?: SearchType;
   stockResults?: StockType;
   weatherResults?: WeatherType;
-  dictionaryResults?: DictionaryType;
+  dictionaryResults?: DictionaryType; 
+
 };
 
 const Source = (props: Props) => {
@@ -63,6 +66,11 @@ const Source = (props: Props) => {
         {props.mode === "dictionary" && (
           <div className={styles.sourceRow}>
             <Dictionary dictionaryResults={props.dictionaryResults} />
+          </div>
+        )}
+        {props.mode === "news" && (
+          <div className={styles.sourceRow}>
+            <News />
           </div>
         )}
       </div>

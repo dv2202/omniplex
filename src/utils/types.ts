@@ -10,6 +10,7 @@ export type Mode =
   | "stock"
   | "weather"
   | "dictionary"
+  | "news"
   | "";
 
 export type FileInfo = {
@@ -49,6 +50,7 @@ export type Chat = {
   stocksResults?: StockType;
   weatherResults?: WeatherType;
   dictionaryResults?: DictionaryType;
+  newsResults?: NewsType;
 };
 
 export type SearchType = {
@@ -152,4 +154,23 @@ export type LibraryItem = {
   size: number;
   url: string;
   date: string;
+};
+
+
+// export type NewsApiResponse = {
+//   status: string;
+//   request_id: string;
+//   data: NewsItem[];
+// };
+
+export type NewsType = {
+  title: string;
+  link: string;
+  snippet: string;
+  photo_url: string;
+  thumbnail_url: string;
+  published_datetime_utc: string;
+  source_name: string;
+  source_logo_url: string;
+  source_favicon_url: string;
 };

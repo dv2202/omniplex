@@ -4,11 +4,11 @@ import MainPrompt from "../components/MainPrompt/MainPrompt";
 
 const Home = () => {
   return (
-    <AuthWrapper>
+    // <AuthWrapper>
       <div className={styles.main}>
         <MainPrompt />
       </div>
-    </AuthWrapper>
+    // </AuthWrapper>
   );
 };
 

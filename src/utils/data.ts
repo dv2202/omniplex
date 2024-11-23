@@ -83,4 +83,11 @@ export const PLUGINS = [
     url: "/plugins/dictionary",
     description: "Look up word definitions",
   },
+  {
+    tag: "Built In",
+    name: "News",
+    comingSoon: false,
+    url: "/news",
+    description: "Look up top headlines",
+  },
 ];

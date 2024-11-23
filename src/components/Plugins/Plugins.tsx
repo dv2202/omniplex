@@ -17,6 +17,7 @@ interface Plugin {
   url: string;
   icon?: React.ReactNode;
   description: string;
+ 
 }
 
 const groupByTag = (plugins: Plugin[]) => {
